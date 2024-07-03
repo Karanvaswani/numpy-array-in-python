@@ -1,0 +1,957 @@
+ 
+shape and rehsape in numpy
+exmaple :- 
+a=np.array([[1,2],[5,6],[8,9]])
+a
+output:- 
+array([[1, 2],
+       [5, 6],
+       [8, 9]])
+example :- 
+a.shape
+output :- 
+(3, 2)
+expample :- 
+a.reshape(2,3)
+output :- 
+array([[1, 2, 5],
+       [6, 8, 9]])
+
+# numpy 
+ create a numpy array
+import numpy as np
+np.array
+example :- 
+arr = np.array((1, 2, 3, 4, 5))
+print(arr)
+output :- [1,2,3,4,5]
+example :- with zero dimension 
+arr = np.array(42)
+print(arr)
+output :-
+42.
+example :-  5 dimension array
+arr = np.array([1, 2, 3, 4], ndmin=5)
+print(arr)
+output :- 
+[[[[[1 2 3 4]]]]]
+example
+x=np.array([1,2,3,4,5])
+print (x)
+print(type(x))
+output :-
+[1 2 3 4 5]
+<class 'numpy.ndarray'>
+example :-
+x=(1,2,3,4)
+y=np.array([1,2,3,4,5,6,7])
+y
+output :-
+array([1, 2, 3, 4, 5, 6, 7])
+two dimension array
+example:-
+arr2=np.array([[1,2,3,4,5,6],[2,3,4,5,6,7]])
+arr2
+output :- number of elements should be same in array suppose in one array element are 6, then in anther element should be 6. otherwise it will give error
+array([[1, 2, 3, 4, 5, 6],
+       [2, 3, 4, 5, 6, 7]])
+2 #its two dimnsion in output
+example 
+ar=np.zeros((2,3))
+ar
+output :- array([[0., 0., 0.],
+       [0., 0., 0.]])
+example :- 
+ar
+ar=np.ones(1)
+ar
+output :-array([1.])
+example
+ar=np.empty(4)
+ar
+output :- array([0., 0., 0., 0.])
+range 
+example :- 
+ar=np.arange(4)
+ar
+output :-array([0, 1, 2, 3])
+diagonally
+example :- 
+ar=np.eye(3)
+ar 
+output :-  array([[1., 0., 0.],
+       [0., 1., 0.],
+       [0., 0., 1.]])
+example :-
+ar=np.eye(3,5)
+ar
+output :- array([[1., 0., 0., 0., 0.],
+       [0., 1., 0., 0., 0.],
+       [0., 0., 1., 0., 0.]])
+how to convert row array into column array
+you can use the np.newaxis attribute or the reshape() function. Both methods allow you to add an additional axis to an existing array, effectively converting it into a column array
+example :-  using newaxis method
+import numpy as np
+a = np.array([1, 2, 3, 4])
+x= a[:, np.newaxis]
+print(x)
+output :- 
+[[1]
+ [2]
+ [3]
+ [4]]
+
+example :- using reshape method 
+a = np.array([1, 2, 3, 4])
+x=a.reshape(-1, 1)
+print(x)
+output :-
+[[1]
+ [2]
+ [3]
+ [4]]
+
+how to convert column matrix into row matrix 
+To convert a column array into a row array in NumPy, you can use the np.squeeze() function or the reshape()
+
+example :- using squeeze method 
+x= np.array([[1], [2], [3], [4]])
+print (x)    
+z=np.squeeze(x)
+print(z)
+output :-
+[[1]
+ [2]
+ [3]
+ [4]]
+[1 2 3 4]
+
+example :- using reshape method
+x= np.array([[1], [2], [3], [4]])
+print (x)  
+z=x.reshape(-1)
+print(z)
+output :-
+[[1]
+ [2]
+ [3]
+ [4]]
+[1 2 3 4]
+
+line space
+example :- 
+ar= np.linspace(1,20,10)
+ar
+output :-
+array([ 1.        ,  3.11111111,  5.22222222,  7.33333333,  9.44444444,
+       11.55555556, 13.66666667, 15.77777778, 17.88888889, 20.        ])
+example :-
+create numpy arryay with random numbers
+rand()
+randn() :- it generates the random value which is close to zero (can be positive and negative value)
+ranf()
+randint()
+example :-
+ar=np.random.rand(4)
+ar
+output :- array([0.95630111, 0.9402946 , 0.77234416, 0.1215464 ])
+example :-
+ar=np.random.rand(2,4)
+ar
+output :-
+array([[0.29996526, 0.08748483, 0.51730359, 0.08252816],
+       [0.67439664, 0.39049646, 0.24296087, 0.61310661]])
+
+example :- 
+ar=np.random.randn(4)
+ar
+output :- array([ 1.00037768,  1.71947961,  0.53295719, -1.17663424])
+example :-
+ar=np.random.ranf(4)
+ar
+ output :-
+array([0.53366821, 0.69966275, 0.07365753, 0.05147454])
+Data type numpy array 
+example :- 
+ar-np.array([1,2,3,4])
+print(type(ar))
+output :-<class 'int'> 
+
+arthmetic operation array
+addition 
+example :- addition
+ar=np.array([1,2,3,4])
+result=ar+5
+print(result)
+output :- [6 7 8 9]
+example :- multiplaction 
+ar=np.array([1,2,3,4])
+result=ar*5
+print(result)
+output :- [ 5 10 15 20]
+example :-
+ar=np.array([1,2,3,4])
+result=ar%2
+print(result)
+output :- [1 0 1 0]
+example : - we can also use function (add, division,multiply)
+ar1=np.array([1,2,3,4])
+ar2=np.array([6,7,8,9])
+result=np.add(ar1,ar2)
+print(result)
+output :- [ 7  9 11 13]
+example :- 
+var21 = np.array([[1, 2, 3, 4], [1,2,3,4]])
+var22 = np.array([[1,2,3,4], [1,2,3, 4]])
+print(var21)
+print(var22)
+varadd2 = var21 + var22
+print(varadd2)
+output :- 
+[[1 2 3 4]
+ [1 2 3 4]]
+[[1 2 3 4]
+ [1 2 3 4]]
+[[2 4 6 8]
+ [2 4 6 8]]
+
+arthmetic function in numpy array
+min.max, argmin,sqrt,sin,cos,cumsum
+example :-  min
+var=np.array([1,2,3,4,5,6,])
+print(min(var))
+output :- 1
+example :-  max
+var=np.array([1,2,3,4,5,6,])
+print(max(var))
+output :- 6
+example :- argmin(tell the min position)
+var=np.array([1,2,3,4,5,6,])
+print(np.argmin(var))
+output :-  
+0
+example :- argmax(tell the max position)
+var=np.array([1,2,3,4,5,6,])
+print(np.argmax(var))
+output :- 
+ 5
+example :-  axis=0 work across coulmn (vertically)
+ axis 1 work across rows ( horizantly)
+example :- 
+var1 = np.array([[1,2,3],[4,5,6]])
+print(np.min(var1,axis=0))
+output :-  [1 2 3]
+example :-
+var1 = np.array([[1,2,3],[4,5,6]])
+print(np.min(var1,axis=1))
+output :- [1 4]
+example :- 
+var1 = np.array([[1,2,3],[4,5,6]])
+print(np.max(var1,axis=1))
+output :- [3 6]
+example :- 
+var1 = np.array([[1,2,3],[4,5,6]])
+print(np.min(var1,axis=1))
+output :- [1 4]
+example :- sqrt 
+var1 = np.array([[1,2,3],[4,5,6]])
+print(np.sqrt(var1))
+output :- 
+[[1.         1.41421356 1.73205081]
+ [2.         2.23606798 2.44948974]]
+
+example :- sine value 
+c
+output :- 
+[[ 0.84147098  0.90929743  0.14112001]
+ [-0.7568025  -0.95892427 -0.2794155 ]]
+example :- cosine value .
+var1 = np.array([[1,2,3],[4,5,6]])
+print(np.cos(var1))
+output :- 
+[[ 0.54030231 -0.41614684 -0.9899925 ]
+ [-0.65364362  0.28366219  0.96017029]]
+example :- cumsum ( cumsum function stands for cumulative sum. It calculates the cumulative sum of elements along a specified axis in an array.)
+example :- 
+var1=np.array([5,6,11,12])
+print(np.cumsum(var1))
+output :- first element is five then add 5 and 6 result is 11, the 11+11 come 22 then 22+12comes 34.
+[ 5 11 22 34]
+example :- 
+var1 = np.array([[1,2,3],[4,5,6]])
+output :-
+ [ 5 11 22 34]
+
+shape and reshape in laptop
+shape :-  used to determine the dimensions of an array. It returns a tuple that contains the lengths of each dimension of the array.
+example :-  shape (it gives the rows and column)
+var=np.array([[1,2,3,],[1,2,3]])
+print(var.shape)
+output :- 
+(2, 3)
+example :-
+arr = np.array([1, 2, 3, 4], ndmin=5)
+print(arr.ndim)
+print(arr)
+print(arr.shape)
+output  :- 
+5 #dimension
+[[[[[1 2 3 4]]]]] 
+(1, 1, 1, 1, 4) # 4rows and 4 columns.
+Reshape :- In NumPy, the reshape function is used to change the shape of an array without changing its data.
+or its used to convert the one dimensional into multidimension.
+example :- 
+arr=np.array([1,2,3,4,5,6])
+print(arr.reshape(2,3))
+output :- 
+[[1 2 3]
+ [4 5 6]]
+example :-
+arr = np.array([1,2,3,4,5,6,7,8,9,10,11,12])
+x1=arr.reshape(2,3,2)
+print(x1)
+print(x1.ndim)
+print(x1.shape)
+output :-
+[[[ 1  2]
+  [ 3  4]
+  [ 5  6]]
+
+ [[ 7  8]
+  [ 9 10]
+  [11 12]]]
+3
+(2, 3, 2)
+example :- reshape multidimension into one dimension
+example :-
+arr=np.array([[1,2,3,4],[1,2,3,4]])
+print(arr)
+print(arr.reshape(-1))
+output :-
+[[1 2 3 4]
+ [1 2 3 4]]
+[1 2 3 4 1 2 3 4]
+example :-
+arr = np.array([1,2,3,4,5,6,7,8,9,10,11,12])
+print(arr.ndim)
+x1=arr.reshape(2,3,2)# first convert into multidimension
+print(x1)
+print ()
+print(x1.reshape(-1))
+output :- 
+1
+[[[ 1  2]
+  [ 3  4]
+  [ 5  6]]
+
+ [[ 7  8]
+  [ 9 10]
+  [11 12]]]
+
+[ 1  2  3  4  5  6  7  8  9 10 11 12]
+
+example :- Broad casting in array
+if first matrix is 3x1 and second matrix is 1x3. then result is 3x3 (b/c here we get maximum order from both of matrix , from first matrix order is 3, and from 2nd matrix is also 3 . so result is 3x3.
+if first matrix is 1x2, and second  matrix is 3x2 here we get 2x3 order of matrix in result. 
+example :- 
+var1=np.array([1,2,3])
+print(var1)
+print(var1.shape)
+print(var1.ndim)
+var2=np.array([[1],[2],[3]])
+print(var2)
+print(var2.shape)
+print(var2.ndim)
+x=var1+var2
+print(x)
+print(x.shape)
+output :-
+[1 2 3]
+(3,)
+1
+[[1]
+ [2]
+ [3]]
+(3, 1)
+2
+[[2 3 4]
+ [3 4 5]
+ [4 5 6]]
+(3, 3)
+
+indexing in  numpy 
+one dimension
+example :- 
+arr = np.array([1, 2, 3, 4])
+print(arr[0])
+output :- 
+1
+two dimension 
+example :- 
+import numpy as np 
+arr = np.array([[1,2,3,4,5], [6,7,8,9,10]])
+print(arr)
+print(arr[1,3])  # ist element tells us about the row, accordingto indexing 1 detecting the 2nd row and 2nd row fourth column  and 4th column element is 9
+output :-  
+[[ 1  2  3  4  5]
+ [ 6  7  8  9 10]]
+9
+
+example :-
+arr = np.array([[1,2,3,4,5], [6,7,8,9,10]])
+print(arr[0,2])
+output :- 
+3
+
+
+example :- shape in multidimension
+arr = np.array([[[1, 2, 3, 4], [1, 2, 3, 4]], [[6,7,8,9], [10, 11, 13, 14]]])
+print(arr)
+print(arr.shape)
+output:-
+[[[ 1  2  3  4]
+  [ 1  2  3  4]]
+
+ [[ 6  7  8  9]
+  [10 11 13 14]]]
+(2, 2, 4) # first 2 shows that there are two block, 2nd two show that there are two rows, and 4 shows that there are four column.
+example :- 
+arr=np.array([[[[1,2],[1,2],[1,2],[1,2],[1,2]]]])
+print(arr)
+print(arr.shape)
+output :- 
+[[[[1 2]
+   [1 2]
+   [1 2]
+   [1 2]
+   [1 2]]]]
+(1, 1, 5, 2)
+
+slicing 
+We pass slice instead of index like this: [start:end].
+
+We can also define the step, like this: [start:end:step].
+example 
+arr = np.array([1, 2, 3, 4, 5, 6, 7])
+print(arr[1:3])
+output :- 
+[2 3]
+example :- 
+arr= np.array([[[1,2,3,4],[5,6,7,8],[9,10,11,12]]])
+print(arr.shape)
+print(arr[0,1,1:])
+output :- 
+ (1, 3, 4)
+[10 11 12] 
+   #arr[0] selects the first (and only) element in the outermost dimension of the array. This is necessary because the given array has a shape of [1, 3, 4].
+1 selects the second row in the middle dimension. Since indexing starts from 0, 1 corresponds to the second element in the middle dimension.!
+1: slect the element 
+
+example :- 
+arr = np.array([[[1, 2, 3, 4], [1, 2, 3, 4]], [[6,7,8,9], [10, 11, 13, 14]]])
+print(arr.shape)
+print(arr[1,1,:2])
+output :- 
+(2, 2, 4)
+[10 11]
+first its slect the block (1 ) according to index number . 
+second (1) shows the rows inside the slected block
+and [:2] shows that it will 
+
+example :- 
+arr = np.array([[1, 2, 3, 4, 5], [6, 7, 8, 9, 10]])
+print(arr[0:2, 1:4])
+output :- 
+[[2 3 4]
+ [7 8 9]]
+  reversing an aray
+example :- 
+arr = np.array([[1, 2, 3, 4], [5, 6, 7, 8], [9, 10, 11, 12]])
+reversed_arr = np.flip(arr)
+print(reversed_arr)
+output :- 
+[[12 11 10  9]
+ [ 8  7  6  5]
+ [ 4  3  2  1]]
+
+
+
+iterating in numpy 
+example :- 
+arr=np.array([1,2,3,4,5,6])
+print(arr)
+for i in arr:
+    print(i)
+output :- 
+[1 2 3 4 5 6]
+1
+2
+3
+4
+5
+6
+
+example :-
+arr=np.array([[1,2,3,4,5],[6,7,8,9,10]])
+for i in arr:
+    print(i)
+output :-
+[1 2 3 4 5]
+[ 6  7  8  9 10]
+
+example :-
+arr = np.array([[1, 2, 3], [4, 5, 6]])
+for x in arr:
+  for y in x:
+    print(y)
+output :- 
+1
+2
+3
+4
+5
+6
+
+example :-  
+arr=np.array([[1,2,3,4,5],[6,7,8,9,10]])
+for i in np.nditer(arr):
+     print(i)
+output :- 
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+
+example :- 
+arr=np.array([[1,2,3,4,5],[6,7,8,9,10]])
+for i in np.ndenumerate(arr):
+     print(i)
+output :- 
+((0, 0), 1)
+((0, 1), 2)
+((0, 2), 3)
+((0, 3), 4)
+((0, 4), 5)
+((1, 0), 6)
+((1, 1), 7)
+((1, 2), 8)
+((1, 3), 9)
+((1, 4), 10)
+
+example :- 
+arr = np.array([[1, 2, 3, 4], [5, 6, 7, 8]])
+for x in np.nditer(arr[:, ::2]):
+  print(x)
+output :-   The colon (:) is a slicing operator used in NumPy to specify ranges or slices of elements along a specific axis in an array
+The first colon : before the comma , indicates that we want to include all rows of the array.
+1
+3
+5
+7
+
+example :- 
+arr = np.array([[1, 2, 3, 4], [5, 6, 7, 8]])
+for x in np.nditer(arr[:, ::3]):
+  print(x)
+output 
+1
+4
+5
+8
+copy vs view in numpy
+example : - 
+arr = np.array([1, 2, 3, 4, 5])
+x = arr.copy()
+print(x)
+output :- 
+[1 2 3 4 5]
+example :-
+arr = np.array([1, 2, 3, 4, 5])
+x = arr.copy()
+arr[0]=40
+print(x)
+x=arr.view()
+print(x)
+output :-  data can not be change in the copy , but it can be change  in the view function
+[1 2 3 4 5]
+[40  2  3  4  5]
+
+
+joinning and spiltting array in numpy 
+
+one dimension  using concatenate  function 
+example :-
+arr1=np.array([1,2,3,4])
+arr2=np.array([5,6,7,8])
+arr=np.concatenate((arr1,arr2))
+print(arr)
+output :- 
+[1 2 3 4 5 6 7 8]
+
+two dimension 
+example :-  axis=1 is used to concatenate the arrays arr1 and arr2 along the horizontal axis. 
+arr1 = np.array([[1, 2], [3, 4]])
+arr2 = np.array([[5, 6], [7, 8]])
+arr = np.concatenate((arr1, arr2), axis=1)
+print(arr)  
+output :- 
+[[1 2 5 6]
+ [3 4 7 8]]
+example :- 
+arr1 = np.array([[[1, 2], [3, 4]], [[5, 6], [7, 8]]])
+arr2 = np.array([[[9, 10], [11, 12]], [[13, 14], [15, 16]]])
+arr = np.concatenate((arr1, arr2), axis=2)
+print(arr)
+output :- 
+[[[ 1  2  9 10]
+  [ 3  4 11 12]]
+
+ [[ 5  6 13 14]
+  [ 7  8 15 16]]]
+
+using stack function 
+np.stack(arrays, axis=axis)
+example :-
+arr1=np.array([1,2,3,4])
+arr2=np.array([5,6,7,8])
+arr=np.stack((arr1,arr2),axis=1)
+print(arr)
+output :- 
+[[1 5]
+ [2 6]
+ [3 7]
+ [4 8]]
+without axis 
+example :-
+arr1=np.array([1,2,3,4])
+arr2=np.array([5,6,7,8])
+arr=np.stack((arr1,arr2))
+print(arr)
+output :- 
+[[1 2 3 4]
+ [5 6 7 8]]
+
+
+example :- 
+var1=np.array([1,2,3,4])
+var2=np.array([5,6,7,8])
+new1=np.hstack((var1,var2)) # row
+new2=np.vstack((var1,var2)) # column
+new3=np.dstack((var1,var2)) # height 
+print(new1)
+print(new2)
+print(new3)
+output :- 
+[1 2 3 4 5 6 7 8]
+[[1 2 3 4]
+ [5 6 7 8]]
+[[[1 5]
+  [2 6]
+  [3 7]
+  [4 8]]]
+
+if we axis zero then vstack ihas the same function.
+example :- 
+var1=np.array([1,2,3,4])
+var2=np.array([5,6,7,8])
+new=np.stack((var1,var2),axis=0)
+new1=np.hstack((var1,var2)) # row
+new2=np.vstack((var1,var2)) # column
+new3=np.dstack((var1,var2)) # height 
+print(new)
+print(new1)
+print(new2)
+print(new3)
+output :- 
+[[1 2 3 4]
+ [5 6 7 8]]
+[1 2 3 4 5 6 7 8]
+[[1 2 3 4]
+ [5 6 7 8]]
+[[[1 5]
+  [2 6]
+  [3 7]
+  [4 8]]]
+
+spilt :- 
+example :- 
+arr = np.array([1, 2, 3, 4, 5])
+new = np.array_split(arr, 3)
+print(new)
+output :- 
+[array([1, 2]), array([3, 4]), array([5])]
+example :- 
+
+search array function 
+for search any number from array we use ''where function''. its tells the index position.
+example :-
+arr = np.array([1,2,3,4,5,6,7,8,2,5,2])
+x=np.where(arr == 3)# here we search 3 . 
+print(x)
+output :- 
+(array([2], dtype=int64),) 3# is at 2 number index position
+example :-
+arr = np.array([1,2,3,4,5,6,7,8,2,5,2])
+x=np.where(arr == 2)
+print(x)  
+output :- 
+(array([ 1,  8, 10], dtype=int64),) #2 at indexing number 1,8,10
+
+search sort 
+Search Sorted
+There is a method called searchsorted() which performs a binary search in the array, and returns the index where the specified value would be inserted to maintain the search order.
+
+example :- 
+arr = np.array([1,2,3,4,5,6])
+print(np.searchsorted(arr, 7))
+output :- 
+6
+example :- 
+arr = np.array([1,2,3,4,5,6])
+print(np.searchsorted(arr, 1))
+output :- 
+0
+
+Search From the Right Side :- side='right'
+example :-  it  gives  the index number..
+arr = np.array([6, 7, 8, 9])
+print(np.searchsorted(arr, 7, side='right'))
+output :- 
+2
+example :- 
+arr = np.array([1, 3, 5, 7])
+print(np.searchsorted(arr, [2, 4, 6]))
+output :-  # it works according to its index number ( 2 comes after one and one has aero indexing number so 2 comes at indexing number one, 4 comes after 3 and position of 3 is one so 4 comes at 2, and position of five is 2 and 6 comes after 5. 
+[1 2 3]
+example :- 
+arr = np.array([1,2,5,7,8,10])
+print(np.searchsorted(arr,[3,4,9]))
+output :- # the 3 and 4 comes in between 2 and 5. and position of 2 is one acording to its indexing number  so 3 nd  4 comes at indexing number 2 . and 9 comes between 8 and 10. and 8 is at 4th number position number according to its indexing number so position of 9 become five.   
+[2 2 5]
+  
+example :-  sort array
+arr = np.array([3, 2, 0, 1])
+print(np.sort(arr))
+output :- 
+[0 1 2 3]
+ example :-
+arr = np.array(['b','a','k','c','e','m','l'])
+print(np.sort(arr))
+output :-
+['a' 'b' 'c' 'e' 'k' 'l' 'm']
+example :- sorted 2 dimension array
+arr = np.array([[3, 2, 4], [5, 0, 1]])
+print(np.sort(arr))
+output:
+[[2 3 4]
+ [0 1 5]]
+
+filter array :- 
+here we use true and false in array
+example :- 
+arr = np.array([1, 2, 3, 4])
+x = arr[[True, False, True, False]]
+print(x)
+output :-  here we need 1 and 3 so we use use true
+[1 3]
+some different function n array
+example :-  shuffle :- its shuffle the data 
+arr=np.array([1,2,3,4,5,6])
+np.random.shuffle(arr)
+arr
+output :- 
+array([5, 1, 6, 4, 2, 3])
+example :-unique :- its give the unique data not repeating data at output
+arr=np.array([1,2,3,2,41,5,6,7,8,9,3,1,10])
+x=np.unique(arr)
+print(x)
+output :- 
+[ 1  2  3  5  6  7  8  9 10 41]
+
+resize 
+example :- 
+arr=([1,2,3,4,5,6])
+print(np.resize(arr,(2,3)))
+output :- # 2 rows and three column
+[[1 2 3]
+ [4 5 6]]
+
+ example :- flatten :-  it cinverts the two dimension array into  one dimension array 
+conversion happen on the basis of order 
+example :- 
+arr = np.array([[1, 2, 3], [4, 5, 6]])
+print(arr.flatten()) # it converts the 2 dimension array into one dimension 
+output :- 
+[1 2 3 4 5 6]
+example :- 
+arr = np.array([[1, 2, 3], [4, 5, 6]])
+print(arr.flatten(order='f'))
+output :- # on the basis of order
+[1 4 2 5 3 6]
+
+example :- ravel 
+arr = np.array([[1, 2, 3], [4, 5, 6]])
+print(arr.ravel())
+output :- [1 2 3 4 5 6]
+
+example :- on the basis of order 
+arr = np.array([[1, 2, 3], [4, 5, 6]])
+print(arr.ravel(order='f'))
+output :-  [1 4 2 5 3 6]
+
+example :- insert 
+arr = np.array([1,2,3,40,5])
+print(np.insert(arr, 3,13)) # here 3 declare the position where we want to insert our number. 
+output :- [ 1  2  3 13 40  5]
+example :-
+arr = np.array([1,2,3,40,5])
+print(np.insert(arr, (2,3),13)) # here we insert 13 at position number 2 and 3
+output :- [ 1  2 13  3 13 40  5]
+ example :- 
+arr = np.array([[1, 2, 3, 4], [5, 6, 7, 8], [9, 10, 11, 12]])
+reversed_arr = np.flip(arr, axis=0)
+print(reversed_arr)
+output :-
+[[ 9 10 11 12]
+ [ 5  6  7  8]
+ [ 1  2  3  4]]
+example :-  reversed an array
+arr = np.array([[1, 2, 3, 4], [5, 6, 7, 8], [9, 10, 11, 12]])
+reversed_arr = np.flip(arr, axis=1)
+print(reversed_arr
+output :-
+[[ 4  3  2  1]
+ [ 8  7  6  5]
+ [12 11 10  9]]
+ example :- 
+arr=np.array([[1,2,3,4],[1,2,3,4]])
+v1=np.insert(arr,2,[10,11],axis=1)
+print(v1)
+output :- 
+[[ 1  2 10  3  4]
+ [ 1  2 11  3  4]]
+example :- 
+arr=np.array([[1,2,3,4],[1,2,3,4]])
+v1=np.insert(arr,2,6,axis=0)
+print(v1)
+output :- 
+[[1 2 3 4]
+ [1 2 3 4]
+ [6 6 6 6]]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
